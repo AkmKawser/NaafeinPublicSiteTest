@@ -95,14 +95,3 @@ For a transcript of the inquiry, decisions, and testing process, see [CONVERSATI
 | Academic | Notice Board | https://www.nia.edu.bd/notices |
 | Gallery | Photo Gallery | https://www.nia.edu.bd/gallery |
 | Contact | Contact Us | https://www.nia.edu.bd/contact-us |
-
----
-
-## 🛠️ Instructions to Import to Google Sheets
-
-1. Open [Google Sheets](https://sheets.new).
-2. Go to **File** > **Import**.
-3. Select the **Upload** tab.
-4. Drag and drop the `website_audit_report.csv` file from this folder.
-5. In the Import file dialog, select **"Replace current sheet"** and separator **"Detect automatically"** (or comma).
-6. Click **Import data**.
