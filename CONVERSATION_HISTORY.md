@@ -82,17 +82,7 @@ This log captures the complete conversation history, inquiries, audit methodolog
 
 ---
 
-### 8. Google Sheets Export Request
-* **User Query:**
-  `convert the csv file to google sheet`
-* **Assistant Response:**
-  * Copied `website_audit_report.csv` content to clipboard for direct paste into Google Sheets.
-  * Provided step-by-step instructions for both paste and File > Import methods.
-  * Attempted automation via Playwright browser, but Google login was required — advised user to sign in first.
-
----
-
-### 9. Full Site Re-Audit — Missing Content Pages
+### 8. Full Site Re-Audit — Missing Content Pages
 * **User Query:**
   `some pages are content less. why you are not missing them. please recheck every single pages again`
 * **Assistant Actions & Findings:**
@@ -111,7 +101,7 @@ This log captures the complete conversation history, inquiries, audit methodolog
 
 ---
 
-### 10. GitHub Upload Preparation
+### 9. GitHub Upload Preparation
 * **User Query:**
   `make sure all the files are updated in the folder. cuz i am uploading it to github`
 * **Assistant Actions:**
