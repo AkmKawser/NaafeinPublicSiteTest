@@ -9,6 +9,7 @@ This repository contains an audit and assessment of pages, navigation components
 | Category | Count | Status | Summary |
 |---|---|---|---|
 | **Server Errors (HTTP 500)** | 1 | 🔴 Critical | Backend crash/exception when loading students list. |
+| **Dead / Empty Links (`href=""`)** | 3 | 🟡 Medium | Hostel menu links with empty targets doing nothing on click. |
 | **Placeholder / Under Update** | 8 | 🟡 Medium | Menu links redirecting to a generic placeholder page. |
 | **Unrendered Template Syntax** | 1 | 🟡 Medium | Literal `${teacher.id}` string rendered into navigation HTML. |
 | **Active & Healthy Pages** | 12+ | 🟢 Healthy | Loaded properly with complete content. |
@@ -26,6 +27,9 @@ For a transcript of the inquiry, decisions, and testing process, see [CONVERSATI
 |---|---|---|---|---|---|---|
 | **Academic / Students** | Students List | https://www.nia.edu.bd/students-list | Server Error | 500 Internal Server Error | Users cannot view student records; breaks user experience. | Inspect web application error log (e.g., Laravel `storage/logs/laravel.log` or database query logs). Resolve missing SQL column/table or null pointer exception. Add fallback user-friendly error page. |
 | **Navigation / Staff** | Dynamic Teacher Link | https://www.nia.edu.bd/teacher/data/${teacher.id} | Template Syntax Error | 404 / Invalid Route | Produces broken links when users or bots crawl menu navigation. | Fix blade/frontend template interpolation. Ensure `${teacher.id}` is evaluated in JavaScript or Blade syntax `{{ $teacher->id }}` prior to output. |
+| **Hostel** | Hostel Rules and Regulations | https://www.nia.edu.bd/ (`href=""`) | Dead / Empty Link | N/A (Empty `href`) | Desktop click does nothing; mobile redirects to home. Users cannot view hostel rules. | Create dedicated route and page `/hostel-rules`, upload hostel policy/regulations, and update menu target. |
+| **Hostel** | House Master | https://www.nia.edu.bd/ (`href=""`) | Dead / Empty Link | N/A (Empty `href`) | Desktop click does nothing; mobile redirects to home. House Master profile inaccessible. | Create dedicated route `/hostel-house-master` or section under staff/hostel and link navigation item. |
+| **Hostel** | House Tutor | https://www.nia.edu.bd/ (`href=""`) | Dead / Empty Link | N/A (Empty `href`) | Desktop click does nothing; mobile redirects to home. House Tutor information inaccessible. | Create dedicated route `/hostel-house-tutor` or section under staff/hostel and link navigation item. |
 | **Discipline** | General Discipline | https://www.nia.edu.bd/this-content-is-currently-under-update | Missing Content / Placeholder | 200 OK | Visitors see a generic placeholder notice instead of student rules. | Create dedicated route and view `/general-discipline`, publish school code of conduct and discipline policy. Update navbar href. |
 | **Discipline** | Do's and Don'ts | https://www.nia.edu.bd/this-content-is-currently-under-update | Missing Content / Placeholder | 200 OK | Incomplete school guidelines for parents and students. | Create dedicated route `/dos-and-donts`, add behavioral rules and guidance content, and link from navigation. |
 | **Discipline** | Mode of Motivation | https://www.nia.edu.bd/this-content-is-currently-under-update | Missing Content / Placeholder | 200 OK | Incomplete school guidelines. | Add page content explaining rewards, student recognition, and motivation system, or remove item from menu until ready. |

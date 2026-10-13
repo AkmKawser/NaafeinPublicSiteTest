@@ -65,3 +65,17 @@ This log captures the complete conversation history, inquiries, audit methodolog
   `also add the conversation history`
 * **Assistant Response:**  
   * Compiled this `CONVERSATION_HISTORY.md` file documenting the full dialogue, context switches, and resulting actions.
+
+---
+
+### 7. Hostel Navigation Investigation & Report Update
+* **User Query:**  
+  `please read the conversion history md file. after reading this my question is why have you not added hostel in the repost. nothing happens when we click there`
+* **Assistant Actions & Findings:**  
+  * Re-inspected the raw homepage DOM for the **Hostel** dropdown navigation items.
+  * Identified the root cause of why Hostel had been omitted in the initial crawl:
+    * The original regex filter extracted valid URL routes matching `https://nia.edu.bd/[path]`.
+    * In the desktop markup, all 3 dropdown items (`Hostel Rules and Regulations`, `House Master`, `House Tutor`) were defined with empty `href=""` attributes (`<a class="dropdown-item" href="">`), meaning clicking them reloads the current page or performs no action.
+    * In the mobile markup, the same items point circular back to `https://www.nia.edu.bd/`.
+  * Updated `website_audit_report.csv` and `README.md` to classify these 3 Hostel items under **Dead / Empty Link (`href=""`)** with actionable remediation steps.
+
